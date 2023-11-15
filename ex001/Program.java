@@ -21,31 +21,21 @@ public class Program {
     public static void main(String[] args) {
         EditorModel model1 = new Editor();
         View view1 = new MainView();
-        Toys toy1 = new Toys("Машинка", 2);
+        Toys toy1 = new Toys("Машинка", 8);
+        Toys toy2 = new Toys("Динозавр", 3);
         MainPresenter presenter = new MainPresenter(model1, view1);
-        Toys toy2 = createToy();
-        System.out.println(toy2);
 
-        // presenter.addToy(toy1);
-        // presenter.readFile();
 
-       
+        presenter.addToy(toy1);
+        presenter.addToy(toy2);
+
+        System.out.println("---------------------");
+        presenter.giftToy();
+
+
         
     }
 
-    public static Toys createToy()
-    {
-        
-        Scanner scanner = new Scanner(System.in,"utf-8");
-        System.out.println("Название игрушки:");
-        String name = scanner.nextLine();
-        System.out.println("Шанс выпадения:");
-        int weight = scanner.nextInt();
-
-        Toys toy1 = new Toys(name, weight);
-        return toy1;
-        
-    }
 
 
 }
