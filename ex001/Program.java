@@ -2,7 +2,13 @@ package ex001;
 
 
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.Locale;
 import java.util.Scanner;
+
+
 
 import ex001.Models.Editor;
 import ex001.Models.Toys;
@@ -17,6 +23,8 @@ public class Program {
         View view1 = new MainView();
         Toys toy1 = new Toys("Машинка", 2);
         MainPresenter presenter = new MainPresenter(model1, view1);
+        Toys toy2 = createToy();
+        System.out.println(toy2);
 
         // presenter.addToy(toy1);
         // presenter.readFile();
@@ -25,9 +33,19 @@ public class Program {
         
     }
 
-    public static void startMenu()
+    public static Toys createToy()
     {
-        Scanner scanner = new Scanner(System.in);
+        
+        Scanner scanner = new Scanner(System.in,"utf-8");
+        System.out.println("Название игрушки:");
+        String name = scanner.nextLine();
+        System.out.println("Шанс выпадения:");
+        int weight = scanner.nextInt();
+
+        Toys toy1 = new Toys(name, weight);
+        return toy1;
+        
     }
+
 
 }
